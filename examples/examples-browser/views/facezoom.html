@@ -28,6 +28,7 @@
     
     <div style="margin-bottom: 20px">
       <button type="button" class="btn btn-primary mr-1" id="skip"> Skip Emotion</button>
+      <button type="button" class="btn btn-primary mr-1" id="restart"> Restart</button>
     </div>
 
 		<div class="webcam_outer">
@@ -261,6 +262,9 @@
 	  })
     $('#skip').get(0).addEventListener('click', (event) => {
 		  currentEmotion++;
+	  })
+    $('#restart').get(0).addEventListener('click', (event) => {
+		  location.reload();
 	  })
     }
 
