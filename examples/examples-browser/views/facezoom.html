@@ -15,6 +15,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
 </head>
 
+
 <header>
   <h1> Facezoom </h1>
 
@@ -136,7 +137,6 @@
 		const dims = faceapi.matchDimensions(canvas_overlay, videoEl, true)
     let i = 0;
 	    for (; i < result_array.length; i++) {
-      console.log(currentEmotion)
 		  let result = result_array[i]
 		  const resizedResult = faceapi.resizeResults(result, dims)
 	      const minConfidence = 0.05
