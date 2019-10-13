@@ -92,10 +92,6 @@ header, footer {
   left: 0;
 }
 
-#zoom {
-
-}
-
 #facesContainer canvas {
   margin: 10px;
 }
@@ -116,6 +112,22 @@ header, footer {
   padding: 0.5em 0.5em 0.5em 0.5em;
   box-shadow: 0.1em 0.1em 0.3em #888888;
   border: 0.01em solid black;
+}
+
+.webcam_outer {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  width: 100%;
+  flex-direction: column;
+}
+
+.webcam_inner {
+  display: flex;
+  position: relative;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 #zoom_container {
