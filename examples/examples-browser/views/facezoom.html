@@ -93,6 +93,7 @@
     // angry, disgusted, fearful, happy, neutral, sad, surprised
     var pastEmotions = [false, false, false, false, false, false, false]
 
+    const EMOTION_THRESHOLD = 0.75
     async function onPlay() {
       const videoEl = $('#inputVideo').get(0)
 
@@ -131,49 +132,49 @@
 		  canvas_zoom.width = detectionBox.width
 		  canvas_zoom.height = detectionBox.height
 		  ctx_zoom.drawImage(videoEl, detectionBox.x, detectionBox.y, detectionBox.width, detectionBox.height, 0, 0, canvas_zoom.width, canvas_zoom.height)
-      if (resizedResult.expressions.angry >= 0.75 && !pastEmotions[0]) {
+      if (resizedResult.expressions.angry >= EMOTION_THRESHOLD && !pastEmotions[0]) {
       pastEmotions[0] = true
       let temp = $('#a').get(0)
       temp.width = detectionBox.width
 		  temp.height = detectionBox.height
       const temp2 = temp.getContext('2d');
       temp2.drawImage(videoEl, detectionBox.x, detectionBox.y, detectionBox.width, detectionBox.height, 0, 0, temp.width, temp.height)
-      } else if (resizedResult.expressions.disgusted >= 0.75 && !pastEmotions[1]) {
+      } else if (resizedResult.expressions.disgusted >= EMOTION_THRESHOLD && !pastEmotions[1]) {
       pastEmotions[1] = true
       let temp = $('#d').get(0)
       temp.width = detectionBox.width
 		  temp.height = detectionBox.height
       const temp2 = temp.getContext('2d');
       temp2.drawImage(videoEl, detectionBox.x, detectionBox.y, detectionBox.width, detectionBox.height, 0, 0, temp.width, temp.height)  
-      } else if (resizedResult.expressions.fearful >= 0.75 && !pastEmotions[2]) {
+      } else if (resizedResult.expressions.fearful >= EMOTION_THRESHOLD && !pastEmotions[2]) {
       pastEmotions[2] = true
       let temp = $('#f').get(0)
       temp.width = detectionBox.width
 		  temp.height = detectionBox.height
       const temp2 = temp.getContext('2d');
       temp2.drawImage(videoEl, detectionBox.x, detectionBox.y, detectionBox.width, detectionBox.height, 0, 0, temp.width, temp.height)  
-      } else if (resizedResult.expressions.happy >= 0.75 && !pastEmotions[3]) {
+      } else if (resizedResult.expressions.happy >= EMOTION_THRESHOLD && !pastEmotions[3]) {
       pastEmotions[3] = true
       let temp = $('#h').get(0)
       temp.width = detectionBox.width
 		  temp.height = detectionBox.height
       const temp2 = temp.getContext('2d');
       temp2.drawImage(videoEl, detectionBox.x, detectionBox.y, detectionBox.width, detectionBox.height, 0, 0, temp.width, temp.height)  
-      } else if (resizedResult.expressions.neutral >= 0.75 && !pastEmotions[4]) {
+      } else if (resizedResult.expressions.neutral >= EMOTION_THRESHOLD && !pastEmotions[4]) {
       pastEmotions[4] = true
       let temp = $('#n').get(0)
       temp.width = detectionBox.width
 		  temp.height = detectionBox.height
       const temp2 = temp.getContext('2d');
       temp2.drawImage(videoEl, detectionBox.x, detectionBox.y, detectionBox.width, detectionBox.height, 0, 0, temp.width, temp.height)  
-      } else if (resizedResult.expressions.sad >= 0.75 && !pastEmotions[5]) {
+      } else if (resizedResult.expressions.sad >= EMOTION_THRESHOLD && !pastEmotions[5]) {
       pastEmotions[5] = true
       let temp = $('#sa').get(0)
       temp.width = detectionBox.width
 		  temp.height = detectionBox.height
       const temp2 = temp.getContext('2d');
       temp2.drawImage(videoEl, detectionBox.x, detectionBox.y, detectionBox.width, detectionBox.height, 0, 0, temp.width, temp.height)  
-      } else if (resizedResult.expressions.surprised >= 0.75 && !pastEmotions[6]) {
+      } else if (resizedResult.expressions.surprised >= EMOTION_THRESHOLD && !pastEmotions[6]) {
       pastEmotions[6] = true
       let temp = $('#su').get(0)
       temp.width = detectionBox.width
