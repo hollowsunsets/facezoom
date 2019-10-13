@@ -10,6 +10,10 @@ npm start
 
 Open a web browser to `http://localhost:PORT` where `PORT` is the port number stated by `npm start`.
 
+## Developing
+
+The Facezoom code is located in `examples/examples-browser/views/facezoom.html`
+
 ---
 
 # face-api.js
