@@ -83,6 +83,7 @@
 
   <script>
     let forwardTimes = []
+	let isRecording = true;
 
     function updateTimeStats(timeInMs) {
       forwardTimes = [timeInMs].concat(forwardTimes).slice(0, 30)
@@ -95,6 +96,9 @@
 
     const EMOTION_THRESHOLD = 0.75
     async function onPlay() {
+	  if (!isRecording) {
+		  return
+	  }
       const videoEl = $('#inputVideo').get(0)
 
       if(videoEl.paused || videoEl.ended || !isFaceDetectionModelLoaded())
@@ -205,6 +209,15 @@
       const stream = await navigator.mediaDevices.getUserMedia({ video: {} })
       const videoEl = $('#inputVideo').get(0)
       videoEl.srcObject = stream
+	  $('#overlay').get(0).addEventListener('click', (event) => {
+		  isRecording = !isRecording;
+		  if (isRecording) {
+			  videoEl.play()
+			  setTimeout(() => onPlay())
+		  } else {
+			  videoEl.pause()
+		  }
+	  })
     }
 
     function updateResults() {}
