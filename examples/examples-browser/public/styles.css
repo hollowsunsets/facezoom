@@ -1,3 +1,9 @@
+body {
+  color: rgba(26, 26, 26, .7);
+  font-family: 'Lora', serif;
+  font-size: 16px;
+  margin: 0;
+}
 
 header h1 {
   font-weight: normal;
