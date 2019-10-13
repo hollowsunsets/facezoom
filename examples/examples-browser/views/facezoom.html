@@ -20,7 +20,7 @@
 
 <section>
 
-  <h2>Take an Angry face</h2>
+  <h2 id="description">Take an Angry face</h2>
     <div style="position: relative" class="margin">
       <video onloadedmetadata="onPlay(this)" id="inputVideo" autoplay muted playsinline></video>
     <canvas id="overlay"></canvas>
@@ -144,6 +144,7 @@
 		  temp.height = detectionBox.height
       const temp2 = temp.getContext('2d');
       temp2.drawImage(videoEl, detectionBox.x, detectionBox.y, detectionBox.width, detectionBox.height, 0, 0, temp.width, temp.height)
+      document.getElementById("description").innerHTML = "Take a disgusted face";
       } else if (resizedResult.expressions.disgusted >= EMOTION_THRESHOLD && !pastEmotions[1] && pastEmotions[0]) {
       pastEmotions[1] = true
       let temp = $('#d').get(0)
@@ -151,6 +152,7 @@
 		  temp.height = detectionBox.height
       const temp2 = temp.getContext('2d');
       temp2.drawImage(videoEl, detectionBox.x, detectionBox.y, detectionBox.width, detectionBox.height, 0, 0, temp.width, temp.height)  
+      document.getElementById("description").innerHTML = "Take a fearful face";
       } else if (resizedResult.expressions.fearful >= EMOTION_THRESHOLD && !pastEmotions[2] && pastEmotions[1]) {
       pastEmotions[2] = true
       let temp = $('#f').get(0)
@@ -158,6 +160,7 @@
 		  temp.height = detectionBox.height
       const temp2 = temp.getContext('2d');
       temp2.drawImage(videoEl, detectionBox.x, detectionBox.y, detectionBox.width, detectionBox.height, 0, 0, temp.width, temp.height)  
+      document.getElementById("description").innerHTML = "Take a happy face";
       } else if (resizedResult.expressions.happy >= EMOTION_THRESHOLD && !pastEmotions[3] && pastEmotions[2]) {
       pastEmotions[3] = true
       let temp = $('#h').get(0)
@@ -165,6 +168,7 @@
 		  temp.height = detectionBox.height
       const temp2 = temp.getContext('2d');
       temp2.drawImage(videoEl, detectionBox.x, detectionBox.y, detectionBox.width, detectionBox.height, 0, 0, temp.width, temp.height)  
+      document.getElementById("description").innerHTML = "Take a neutral face";
       } else if (resizedResult.expressions.neutral >= EMOTION_THRESHOLD && !pastEmotions[4] && pastEmotions[3]) {
       pastEmotions[4] = true
       let temp = $('#n').get(0)
@@ -172,6 +176,7 @@
 		  temp.height = detectionBox.height
       const temp2 = temp.getContext('2d');
       temp2.drawImage(videoEl, detectionBox.x, detectionBox.y, detectionBox.width, detectionBox.height, 0, 0, temp.width, temp.height)  
+      document.getElementById("description").innerHTML = "Take a sad face";
       } else if (resizedResult.expressions.sad >= EMOTION_THRESHOLD && !pastEmotions[5] && pastEmotions[4]) {
       pastEmotions[5] = true
       let temp = $('#sa').get(0)
@@ -179,6 +184,7 @@
 		  temp.height = detectionBox.height
       const temp2 = temp.getContext('2d');
       temp2.drawImage(videoEl, detectionBox.x, detectionBox.y, detectionBox.width, detectionBox.height, 0, 0, temp.width, temp.height)  
+      document.getElementById("description").innerHTML = "Take a surprised face";
       } else if (resizedResult.expressions.surprised >= EMOTION_THRESHOLD && !pastEmotions[6] && pastEmotions[5]) {
       pastEmotions[6] = true
       let temp = $('#su').get(0)
