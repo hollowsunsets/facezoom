@@ -1,6 +1,6 @@
 const SSD_MOBILENETV1 = 'ssd_mobilenetv1'
 const TINY_FACE_DETECTOR = 'tiny_face_detector'
-const MTCNN = 'mtcnn'
+const MTCNN = 'mtcnn' 
 
 
 let selectedFaceDetector = TINY_FACE_DETECTOR

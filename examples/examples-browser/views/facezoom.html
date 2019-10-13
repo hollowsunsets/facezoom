@@ -20,12 +20,12 @@
       <video onloadedmetadata="onPlay(this)" id="inputVideo" autoplay muted playsinline></video>
 	  <canvas id="overlay"></canvas>
     </div>
-    <div id="zoom_container" style="position: relative" class="margin">
+      <div id="zoom_container" style="position: relative" class="margin">
     </div>
 
     <div class="row side-by-side">
-
-      <!-- face_detector_selection_control -->
+<!-- 
+      face_detector_selection_control
       <div id="face_detector_selection_control" class="row input-field" style="margin-right: 20px;">
         <select id="selectFaceDetector">
           <option value="ssd_mobilenetv1">SSD Mobilenet V1</option>
@@ -33,10 +33,10 @@
           <option value="mtcnn">MTCNN</option>
         </select>
         <label>Select Face Detector</label>
-      </div>
+      </div> -->
       <!-- face_detector_selection_control -->
-
-      <!-- fps_meter -->
+<!-- 
+      fps_meter
       <div id="fps_meter" class="row side-by-side">
         <div>
           <label for="time">Time:</label>
@@ -44,7 +44,7 @@
           <label for="fps">Estimated Fps:</label>
           <input disabled value="-" id="fps" type="text" class="bold">
         </div>
-      </div>
+      </div> -->
       <!-- fps_meter -->
 
     </div>
@@ -74,7 +74,7 @@
     <!-- ssd_mobilenetv1_controls -->
 
     <!-- tiny_face_detector_controls -->
-    <span id="tiny_face_detector_controls">
+    <!-- <span id="tiny_face_detector_controls">
       <div class="row side-by-side">
         <div class="row input-field" style="margin-right: 20px;">
           <select id="inputSize">
@@ -106,7 +106,7 @@
           <i class="material-icons left">+</i>
         </button>
       </div>
-    </span>
+    </span> -->
     <!-- tiny_face_detector_controls -->
 
     <!-- mtcnn_controls -->
@@ -204,7 +204,7 @@
     function updateResults() {}
 
     $(document).ready(function() {
-      renderNavBar('#navbar', 'facezoom')
+      // renderNavBar('#navbar', 'facezoom')
       initFaceDetectionControls()
       run()
     })
