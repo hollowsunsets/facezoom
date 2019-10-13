@@ -16,16 +16,15 @@
 
 <body>
 
-  <div id="navbar"></div>
 
-    <div id="blah" style="position: relative" class="margin">
+    <div style="position: relative" class="margin">
       <video onloadedmetadata="onPlay(this)" id="inputVideo" autoplay muted playsinline></video>
     <canvas id="overlay"></canvas>
     
-    </div>
-      <div id="zoom_container" style="position: relative" class="margin">
-    </div>
-    <label for="zoom_container">Your Face!</label>
+	<div>
+		<div id="zoom_container" class="margin"></div>
+		<label for="zoom_container">Facecam</label>
+	</div>
     <div id="emotion_container" class="margin">
     <div class="emotion_entry">    <canvas id="a"></canvas><br/>
       <label for="a">Angry</label></div>
@@ -183,6 +182,7 @@
 		  let canvas_zoom = $('#zoom' + i).get(0)
 		  if (!canvas_zoom) {
 			  canvas_zoom = document.createElement('canvas')
+			  canvas_zoom.classList.add('zoom_entry')
 			  canvas_zoom.id = 'zoom' + i
 			  canvas_zoom_container.appendChild(canvas_zoom)
 		  }
