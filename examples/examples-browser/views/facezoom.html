@@ -172,7 +172,8 @@
     const canvas_overlay = $('#overlay').get(0)
 		const canvas_zoom_container = $('#zoom_container').get(0)
 		const dims = faceapi.matchDimensions(canvas_overlay, videoEl, true)
-	    for (let i = 0; i < result_array.length; i++) {
+    let i = 0;
+	    for (; i < result_array.length; i++) {
 		  let result = result_array[i]
 		  const resizedResult = faceapi.resizeResults(result, dims)
 	      const minConfidence = 0.05
@@ -240,6 +241,11 @@
       temp2.drawImage(videoEl, detectionBox.x, detectionBox.y, detectionBox.width, detectionBox.height, 0, 0, temp.width, temp.height)  
       }
 		}
+    let old_zoom = $('#zoom' + i).get(0)
+  while (old_zoom && old_zoom.parentElement) {
+      old_zoom.parentElement.removeChild(old_zoom)
+      i++
+    }
       }
     
       setTimeout(() => onPlay())
