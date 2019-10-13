@@ -16,12 +16,19 @@
 
 <header>
   <h1> Facezoom </h1>
+
 </header>
 
 <section>
 
     <div style="position: relative">
-	    <h2 id="description">Make an angry face!</h2>
+      <h2 id="description">Make an angry face!</h2>
+    </div>
+    
+    <div>
+      <button type="button" class="btn btn-primary" id="skip"> Skip Emotion</button>
+    </div>
+    
 		<div class="webcam_outer">
 		  <div class="webcam_inner">
 			  <video onloadedmetadata="onPlay(this)" id="inputVideo" autoplay muted playsinline></video>
@@ -30,33 +37,33 @@
 			<div>
 				<div id="zoom_container" class="margin"></div>
 				<label for="zoom_container">Facecam</label>
-			</div>
+      </div>
+
 		</div>
     
     <div id="emotion_container" class="margin">
-    <div class="emotion_entry">    <canvas id="a"></canvas><br/>
-      <label for="a">Angry</label></div>
+      <div class="emotion_entry">    <canvas id="a"></canvas><br/>
+        <label for="a">Angry</label></div>
 
-    <div class="emotion_entry">    <canvas id="d"></canvas><br/>
-      <label for="d">Disgusted</label>
-    </div>
-    <div class="emotion_entry">    <canvas id="f"></canvas><br/>
-      <label for="f">Fearful</label>
-    </div>
-    <div class="emotion_entry">    <canvas id="h"></canvas> <br/>
-      <label for="h">Happy</label>
-    </div>
-    <div class="emotion_entry">
-      <canvas id="n"></canvas> <br/>
-      <label for="n">Neutral</label>
-    </div>
-    <div class="emotion_entry">    <canvas id="sa"></canvas> <br/>
-      <label for="sa">Sad</label>
-    </div>
-    <div class="emotion_entry">    <canvas id="su"></canvas> <br/>
-      <label for="su">Surprised</label>
-    </div>
-    <button type="button" id="skip"> Skip Emotion</button>
+      <div class="emotion_entry">    <canvas id="d"></canvas><br/>
+        <label for="d">Disgusted</label>
+      </div>
+      <div class="emotion_entry">    <canvas id="f"></canvas><br/>
+        <label for="f">Fearful</label>
+      </div>
+      <div class="emotion_entry">    <canvas id="h"></canvas> <br/>
+        <label for="h">Happy</label>
+      </div>
+      <div class="emotion_entry">
+        <canvas id="n"></canvas> <br/>
+        <label for="n">Neutral</label>
+      </div>
+      <div class="emotion_entry">    <canvas id="sa"></canvas> <br/>
+        <label for="sa">Sad</label>
+      </div>
+      <div class="emotion_entry">    <canvas id="su"></canvas> <br/>
+        <label for="su">Surprised</label>
+      </div>
     </div>
     
 
