@@ -217,7 +217,7 @@
       }
       if (!pastEmotions[currentEmotion - 1]) 
         pastEmotions[currentEmotion - 1] = !pastEmotions[currentEmotion - 1];
-        if (currentEmotion == pastEmotions.length){
+        if (currentEmotion != pastEmotions.length){
           document.getElementById("description").innerHTML = "Make a " + emotionWords[currentEmotion] + " face!";
         } else {
           document.getElementById("description").innerHTML = "All done";
