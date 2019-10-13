@@ -1,15 +1,22 @@
 
-
-
-header, footer {
-  background-color: lavender;
-}
-
 header h1 {
   font-weight: normal;
   text-align: center;
   z-index: 1;
 }
+
+section {
+  margin: 100px 125px;
+  text-align: center;
+}
+
+header, footer {
+  background-color: rgb(31, 31, 31);
+  color: rgba(255, 255, 255, .8);
+  padding: 75px;
+  text-align: center;
+}
+
 .page-container {
   left: 0;
   right: 0;
