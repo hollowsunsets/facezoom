@@ -153,7 +153,7 @@
 
       const ts = Date.now()
 
-      const result_array = await faceapi.detectAllFaces(videoEl, options)
+      const result_array = await faceapi.detectAllFaces(videoEl, options).withFaceExpressions()
 
       updateTimeStats(Date.now() - ts)
 
@@ -161,7 +161,10 @@
 		const canvas = $('#overlay').get(0)
 		const dims = faceapi.matchDimensions(canvas, videoEl, true)
 	    for (let result of result_array) {
-		  faceapi.draw.drawDetections(canvas, faceapi.resizeResults(result, dims))
+		  const resizedResult = faceapi.resizeResults(result, dims)
+	      const minConfidence = 0.05
+		  faceapi.draw.drawDetections(canvas, resizedResult)
+          faceapi.draw.drawFaceExpressions(canvas, resizedResult, minConfidence)
 		}
       }
 
@@ -171,7 +174,8 @@
     async function run() {
       // load face detection model
       await changeFaceDetector(TINY_FACE_DETECTOR)
-      changeInputSize(128)
+      await faceapi.loadFaceExpressionModel('/')
+      changeInputSize(224)
 
       // try to access users webcam and stream the images
       // to the video element

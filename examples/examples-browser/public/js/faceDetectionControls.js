@@ -3,14 +3,14 @@ const TINY_FACE_DETECTOR = 'tiny_face_detector'
 const MTCNN = 'mtcnn'
 
 
-let selectedFaceDetector = SSD_MOBILENETV1
+let selectedFaceDetector = TINY_FACE_DETECTOR
 
 // ssd_mobilenetv1 options
 let minConfidence = 0.5
 
 // tiny_face_detector options
-let inputSize = 512
-let scoreThreshold = 0.5
+let inputSize = 128
+let scoreThreshold = 0.1
 
 //mtcnn options
 let minFaceSize = 20
