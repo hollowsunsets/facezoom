@@ -71,6 +71,9 @@
   left: 0;
 }
 
+#zoom {
+}
+
 #facesContainer canvas {
   margin: 10px;
 }
