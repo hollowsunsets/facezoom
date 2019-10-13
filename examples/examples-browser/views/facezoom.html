@@ -51,6 +51,7 @@
     <div class="emotion_entry">    <canvas id="su"></canvas> <br/>
       <label for="su">Surprised</label>
     </div>
+    <button type="button" id="skip"> Skip Emotion</button>
     </div>
     
 
@@ -91,10 +92,11 @@
       $('#time').val(`${Math.round(avgTimeInMs)} ms`)
       $('#fps').val(`${faceapi.round(1000 / avgTimeInMs)}`)
     }
+    const EMOTION_THRESHOLD = 0.9
+
     // angry, disgusted, fearful, happy, neutral, sad, surprised
     var pastEmotions = [false, false, false, false, false, false, false]
-
-    const EMOTION_THRESHOLD = 0.75
+    var currentEmotion = 0;
     async function onPlay() {
 	  if (!isRecording) {
 		  return
@@ -119,6 +121,7 @@
 		const dims = faceapi.matchDimensions(canvas_overlay, videoEl, true)
     let i = 0;
 	    for (; i < result_array.length; i++) {
+      console.log(currentEmotion)
 		  let result = result_array[i]
 		  const resizedResult = faceapi.resizeResults(result, dims)
 	      const minConfidence = 0.05
@@ -137,54 +140,66 @@
 		  canvas_zoom.height = detectionBox.height
 		  ctx_zoom.drawImage(videoEl, detectionBox.x, detectionBox.y, detectionBox.width, detectionBox.height, 0, 0, canvas_zoom.width, canvas_zoom.height)
       if (resizedResult.expressions.angry >= EMOTION_THRESHOLD && !pastEmotions[0]) {
-      pastEmotions[0] = true
-      let temp = $('#a').get(0)
-      temp.width = detectionBox.width
-		  temp.height = detectionBox.height
-      const temp2 = temp.getContext('2d');
-      temp2.drawImage(videoEl, detectionBox.x, detectionBox.y, detectionBox.width, detectionBox.height, 0, 0, temp.width, temp.height)
+          currentEmotion++;
+          pastEmotions[0] = true
+          let temp = $('#a').get(0)
+          temp.width = detectionBox.width
+          temp.height = detectionBox.height
+          const temp2 = temp.getContext('2d');
+          temp2.drawImage(videoEl, detectionBox.x, detectionBox.y, detectionBox.width, detectionBox.height, 0, 0, temp.width, temp.height)
       } else if (resizedResult.expressions.disgusted >= EMOTION_THRESHOLD && !pastEmotions[1] && pastEmotions[0]) {
-      pastEmotions[1] = true
-      let temp = $('#d').get(0)
-      temp.width = detectionBox.width
-		  temp.height = detectionBox.height
-      const temp2 = temp.getContext('2d');
-      temp2.drawImage(videoEl, detectionBox.x, detectionBox.y, detectionBox.width, detectionBox.height, 0, 0, temp.width, temp.height)  
+          currentEmotion++;
+          pastEmotions[1] = true
+          let temp = $('#d').get(0)
+          temp.width = detectionBox.width
+          temp.height = detectionBox.height
+          const temp2 = temp.getContext('2d');
+          temp2.drawImage(videoEl, detectionBox.x, detectionBox.y, detectionBox.width, detectionBox.height, 0, 0, temp.width, temp.height)  
       } else if (resizedResult.expressions.fearful >= EMOTION_THRESHOLD && !pastEmotions[2] && pastEmotions[1]) {
-      pastEmotions[2] = true
-      let temp = $('#f').get(0)
-      temp.width = detectionBox.width
-		  temp.height = detectionBox.height
-      const temp2 = temp.getContext('2d');
-      temp2.drawImage(videoEl, detectionBox.x, detectionBox.y, detectionBox.width, detectionBox.height, 0, 0, temp.width, temp.height)  
+          currentEmotion++;
+          pastEmotions[2] = true
+          let temp = $('#f').get(0)
+          temp.width = detectionBox.width
+          temp.height = detectionBox.height
+          const temp2 = temp.getContext('2d');
+          temp2.drawImage(videoEl, detectionBox.x, detectionBox.y, detectionBox.width, detectionBox.height, 0, 0, temp.width, temp.height)  
       } else if (resizedResult.expressions.happy >= EMOTION_THRESHOLD && !pastEmotions[3] && pastEmotions[2]) {
-      pastEmotions[3] = true
-      let temp = $('#h').get(0)
-      temp.width = detectionBox.width
-		  temp.height = detectionBox.height
-      const temp2 = temp.getContext('2d');
-      temp2.drawImage(videoEl, detectionBox.x, detectionBox.y, detectionBox.width, detectionBox.height, 0, 0, temp.width, temp.height)  
+          currentEmotion++;   
+          pastEmotions[3] = true
+          let temp = $('#h').get(0)
+          temp.width = detectionBox.width
+          temp.height = detectionBox.height
+          const temp2 = temp.getContext('2d');
+          temp2.drawImage(videoEl, detectionBox.x, detectionBox.y, detectionBox.width, detectionBox.height, 0, 0, temp.width, temp.height)  
       } else if (resizedResult.expressions.neutral >= EMOTION_THRESHOLD && !pastEmotions[4] && pastEmotions[3]) {
-      pastEmotions[4] = true
-      let temp = $('#n').get(0)
-      temp.width = detectionBox.width
-		  temp.height = detectionBox.height
-      const temp2 = temp.getContext('2d');
-      temp2.drawImage(videoEl, detectionBox.x, detectionBox.y, detectionBox.width, detectionBox.height, 0, 0, temp.width, temp.height)  
+          currentEmotion++;
+          pastEmotions[4] = true
+          let temp = $('#n').get(0)
+          temp.width = detectionBox.width
+          temp.height = detectionBox.height
+          const temp2 = temp.getContext('2d');
+          temp2.drawImage(videoEl, detectionBox.x, detectionBox.y, detectionBox.width, detectionBox.height, 0, 0, temp.width, temp.height)  
       } else if (resizedResult.expressions.sad >= EMOTION_THRESHOLD && !pastEmotions[5] && pastEmotions[4]) {
-      pastEmotions[5] = true
-      let temp = $('#sa').get(0)
-      temp.width = detectionBox.width
-		  temp.height = detectionBox.height
-      const temp2 = temp.getContext('2d');
-      temp2.drawImage(videoEl, detectionBox.x, detectionBox.y, detectionBox.width, detectionBox.height, 0, 0, temp.width, temp.height)  
+          currentEmotion++;
+          pastEmotions[5] = true
+          let temp = $('#sa').get(0)
+          temp.width = detectionBox.width
+          temp.height = detectionBox.height
+          const temp2 = temp.getContext('2d');
+          temp2.drawImage(videoEl, detectionBox.x, detectionBox.y, detectionBox.width, detectionBox.height, 0, 0, temp.width, temp.height)  
       } else if (resizedResult.expressions.surprised >= EMOTION_THRESHOLD && !pastEmotions[6] && pastEmotions[5]) {
-      pastEmotions[6] = true
-      let temp = $('#su').get(0)
-      temp.width = detectionBox.width
-		  temp.height = detectionBox.height
-      const temp2 = temp.getContext('2d');
-      temp2.drawImage(videoEl, detectionBox.x, detectionBox.y, detectionBox.width, detectionBox.height, 0, 0, temp.width, temp.height)  
+          currentEmotion++;
+          pastEmotions[6] = true
+          let temp = $('#su').get(0)
+          temp.width = detectionBox.width
+          temp.height = detectionBox.height
+          const temp2 = temp.getContext('2d');
+          temp2.drawImage(videoEl, detectionBox.x, detectionBox.y, detectionBox.width, detectionBox.height, 0, 0, temp.width, temp.height)  
+      }
+      if (!pastEmotions[currentEmotion - 1]) 
+        pastEmotions[currentEmotion - 1] = !pastEmotions[currentEmotion - 1];
+      if (currentEmotion == pastEmotions.length) {
+        return
       }
 		}
     let old_zoom = $('#zoom' + i).get(0)
@@ -217,6 +232,9 @@
 		  } else {
 			  videoEl.pause()
 		  }
+	  })
+    $('#skip').get(0).addEventListener('click', (event) => {
+		  currentEmotion++;
 	  })
     }
 
