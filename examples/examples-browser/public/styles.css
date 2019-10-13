@@ -95,3 +95,30 @@ header h1 {
 #facesContainer canvas {
   margin: 10px;
 }
+
+#emotion_container {
+  display: inline-flex;
+  align-items: stretch;
+  flex-wrap: wrap;
+  width: 100%;
+}
+.emotion_entry {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: center;
+  flex-direction: column;
+  margin: 0.5em 0.5em 0.5em 0.5em;
+  padding: 0.5em 0.5em 0.5em 0.5em;
+  box-shadow: 0.1em 0.1em 0.3em #888888;
+  border: 0.01em solid black;
+}
+
+#zoom_container {
+  align-items: center;
+  justify-content: center;
+  margin: 0.5em 0.5em 0.5em 0.5em;
+  padding: 0.5em 0.5em 0.5em 0.5em;
+  box-shadow: 0.1em 0.1em 0.3em #888888;
+  border: 0.01em solid black;
+}
