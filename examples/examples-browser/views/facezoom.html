@@ -17,9 +17,10 @@
 <header>
   <h1> Facezoom </h1>
 </header>
+
 <section>
 
-
+  <h2 id="description">Take an Angry face</h2>
     <div style="position: relative" class="margin">
       <video onloadedmetadata="onPlay(this)" id="inputVideo" autoplay muted playsinline></video>
     <canvas id="overlay"></canvas>
@@ -147,6 +148,7 @@
           temp.height = detectionBox.height
           const temp2 = temp.getContext('2d');
           temp2.drawImage(videoEl, detectionBox.x, detectionBox.y, detectionBox.width, detectionBox.height, 0, 0, temp.width, temp.height)
+          document.getElementById("description").innerHTML = "Make an angry face";
       } else if (resizedResult.expressions.disgusted >= EMOTION_THRESHOLD && !pastEmotions[1] && pastEmotions[0]) {
           currentEmotion++;
           pastEmotions[1] = true
@@ -155,6 +157,7 @@
           temp.height = detectionBox.height
           const temp2 = temp.getContext('2d');
           temp2.drawImage(videoEl, detectionBox.x, detectionBox.y, detectionBox.width, detectionBox.height, 0, 0, temp.width, temp.height)  
+          document.getElementById("description").innerHTML = "Make a disgusted face";
       } else if (resizedResult.expressions.fearful >= EMOTION_THRESHOLD && !pastEmotions[2] && pastEmotions[1]) {
           currentEmotion++;
           pastEmotions[2] = true
@@ -163,6 +166,7 @@
           temp.height = detectionBox.height
           const temp2 = temp.getContext('2d');
           temp2.drawImage(videoEl, detectionBox.x, detectionBox.y, detectionBox.width, detectionBox.height, 0, 0, temp.width, temp.height)  
+          document.getElementById("description").innerHTML = "Make a fearful face";
       } else if (resizedResult.expressions.happy >= EMOTION_THRESHOLD && !pastEmotions[3] && pastEmotions[2]) {
           currentEmotion++;   
           pastEmotions[3] = true
@@ -170,7 +174,8 @@
           temp.width = detectionBox.width
           temp.height = detectionBox.height
           const temp2 = temp.getContext('2d');
-          temp2.drawImage(videoEl, detectionBox.x, detectionBox.y, detectionBox.width, detectionBox.height, 0, 0, temp.width, temp.height)  
+          temp2.drawImage(videoEl, detectionBox.x, detectionBox.y, detectionBox.width, detectionBox.height, 0, 0, temp.width, temp.height)
+          document.getElementById("description").innerHTML = "Make a happy face";  
       } else if (resizedResult.expressions.neutral >= EMOTION_THRESHOLD && !pastEmotions[4] && pastEmotions[3]) {
           currentEmotion++;
           pastEmotions[4] = true
@@ -178,7 +183,8 @@
           temp.width = detectionBox.width
           temp.height = detectionBox.height
           const temp2 = temp.getContext('2d');
-          temp2.drawImage(videoEl, detectionBox.x, detectionBox.y, detectionBox.width, detectionBox.height, 0, 0, temp.width, temp.height)  
+          temp2.drawImage(videoEl, detectionBox.x, detectionBox.y, detectionBox.width, detectionBox.height, 0, 0, temp.width, temp.height)
+          document.getElementById("description").innerHTML = "Make a neutral face";  
       } else if (resizedResult.expressions.sad >= EMOTION_THRESHOLD && !pastEmotions[5] && pastEmotions[4]) {
           currentEmotion++;
           pastEmotions[5] = true
@@ -186,7 +192,8 @@
           temp.width = detectionBox.width
           temp.height = detectionBox.height
           const temp2 = temp.getContext('2d');
-          temp2.drawImage(videoEl, detectionBox.x, detectionBox.y, detectionBox.width, detectionBox.height, 0, 0, temp.width, temp.height)  
+          temp2.drawImage(videoEl, detectionBox.x, detectionBox.y, detectionBox.width, detectionBox.height, 0, 0, temp.width, temp.height)
+          document.getElementById("description").innerHTML = "Make a sad face";
       } else if (resizedResult.expressions.surprised >= EMOTION_THRESHOLD && !pastEmotions[6] && pastEmotions[5]) {
           currentEmotion++;
           pastEmotions[6] = true
@@ -194,7 +201,8 @@
           temp.width = detectionBox.width
           temp.height = detectionBox.height
           const temp2 = temp.getContext('2d');
-          temp2.drawImage(videoEl, detectionBox.x, detectionBox.y, detectionBox.width, detectionBox.height, 0, 0, temp.width, temp.height)  
+          temp2.drawImage(videoEl, detectionBox.x, detectionBox.y, detectionBox.width, detectionBox.height, 0, 0, temp.width, temp.height)
+          document.getElementById("description").innerHTML = "Make a surprised face";  
       }
       if (!pastEmotions[currentEmotion - 1]) 
         pastEmotions[currentEmotion - 1] = !pastEmotions[currentEmotion - 1];
