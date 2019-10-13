@@ -1,29 +1,30 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
   <script src="face-api.js"></script>
   <script src="js/commons.js"></script>
   <script src="js/faceDetectionControls.js"></script>
   <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.css">
   <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
 </head>
-<body>
-  <div id="navbar"></div>
-  <div class="center-content page-container">
 
-    <div class="progress" id="loader">
-      <div class="indeterminate"></div>
-    </div>
-    <div style="position: relative" class="margin">
+<body>
+
+  <div id="navbar"></div>
+
+    <div id="blah" style="position: relative" class="margin">
       <video onloadedmetadata="onPlay(this)" id="inputVideo" autoplay muted playsinline></video>
 	  <canvas id="overlay"></canvas>
     </div>
       <div id="zoom_container" style="position: relative" class="margin">
     </div>
 
-    <div class="row side-by-side">
 <!-- 
       face_detector_selection_control
       <div id="face_detector_selection_control" class="row input-field" style="margin-right: 20px;">
@@ -47,30 +48,9 @@
       </div> -->
       <!-- fps_meter -->
 
-    </div>
 
 
     <!-- ssd_mobilenetv1_controls -->
-    <span id="ssd_mobilenetv1_controls">
-      <div class="row side-by-side">
-        <div class="row">
-          <label for="minConfidence">Min Confidence:</label>
-          <input disabled value="0.5" id="minConfidence" type="text" class="bold">
-        </div>
-        <button
-          class="waves-effect waves-light btn"
-          onclick="onDecreaseMinConfidence()"
-        >
-          <i class="material-icons left">-</i>
-        </button>
-        <button
-          class="waves-effect waves-light btn"
-          onclick="onIncreaseMinConfidence()"
-        >
-          <i class="material-icons left">+</i>
-        </button>
-      </div>
-    </span>
     <!-- ssd_mobilenetv1_controls -->
 
     <!-- tiny_face_detector_controls -->
@@ -162,7 +142,7 @@
       updateTimeStats(Date.now() - ts)
 
       if (result_array) {
-		const canvas_overlay = $('#overlay').get(0)
+    const canvas_overlay = $('#overlay').get(0)
 		const canvas_zoom_container = $('#zoom_container').get(0)
 		const dims = faceapi.matchDimensions(canvas_overlay, videoEl, true)
 	    for (let i = 0; i < result_array.length; i++) {
@@ -181,12 +161,14 @@
 		  const detectionBox = resizedResult.detection.box
 		  canvas_zoom.width = detectionBox.width
 		  canvas_zoom.height = detectionBox.height
-		  ctx_zoom.drawImage(videoEl, detectionBox.x, detectionBox.y, detectionBox.width, detectionBox.height, 0, 0, canvas_zoom.width, canvas_zoom.height)
-		}
+      ctx_zoom.drawImage(videoEl, detectionBox.x, detectionBox.y, detectionBox.width, detectionBox.height, 0, 0, canvas_zoom.width, canvas_zoom.height)      
+    }
+    
       }
 
       setTimeout(() => onPlay())
     }
+
 
     async function run() {
       // load face detection model
@@ -209,5 +191,8 @@
       run()
     })
   </script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+ </body>
 </body>
 </html>

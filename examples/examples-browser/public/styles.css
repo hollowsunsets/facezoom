@@ -1,8 +1,23 @@
 
+html,
+body{
+  height: 100%;
+  background-color: #333;
+}
 
+header, footer {
+  background-color: lavender;
+}
+
+header h1 {
+  font-weight: normal;
+  text-align: center;
+  z-index: 1;
+}
 .page-container {
   left: 0;
   right: 0;
+
   margin: auto;
   margin-top: 20px;
   padding-left: 280px;
