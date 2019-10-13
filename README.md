@@ -1,3 +1,17 @@
+# Facezoom
+
+``` bash
+git clone https://github.com/hollowsunsets/leap-motion-inventory.git
+git checkout js
+cd leap-motion-inventory/examples/examples-browser
+npm i
+npm start
+```
+
+Open a web browser to `http://localhost:PORT` where `PORT` is the port number stated by `npm start`.
+
+---
+
 # face-api.js
 
 [![Build Status](https://travis-ci.org/justadudewhohacks/face-api.js.svg?branch=master)](https://travis-ci.org/justadudewhohacks/face-api.js)

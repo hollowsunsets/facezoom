@@ -25,6 +25,10 @@ async function requestExternalImage(imageUrl) {
 function renderNavBar(navbarId, exampleUri) {
   const examples = [
     {
+      uri: 'facezoom',
+      name: 'Facezoom'
+    },
+    {
       uri: 'face_detection',
       name: 'Face Detection'
     },
