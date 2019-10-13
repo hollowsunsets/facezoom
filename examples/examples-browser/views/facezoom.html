@@ -101,6 +101,7 @@
 
     // angry, disgusted, fearful, happy, neutral, sad, surprised
     var pastEmotions = [false, false, false, false, false, false, false]
+    const emotionWords = ['angry', 'disgusted', 'fearful', 'happy', 'neutral', 'sad', 'surprised']
     var currentEmotion = 0;
     async function onPlay() {
 	  if (!isRecording) {
@@ -209,6 +210,8 @@
       }
       if (!pastEmotions[currentEmotion - 1]) 
         pastEmotions[currentEmotion - 1] = !pastEmotions[currentEmotion - 1];
+
+        document.getElementById("description").innerHTML = "Make a " + emotionWords[currentEmotion] + " face!";
       if (currentEmotion == pastEmotions.length) {
         return
       }
