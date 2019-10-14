@@ -15,6 +15,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
 </head>
 
+
 <header>
   <h1> Facezoom </h1>
 
@@ -28,6 +29,7 @@
     
     <div style="margin-bottom: 20px">
       <button type="button" class="btn btn-primary mr-1" id="skip"> Skip Emotion</button>
+      <button type="button" class="btn btn-primary mr-1" id="restart"> Restart</button>
     </div>
 
 		<div class="webcam_outer">
@@ -135,7 +137,6 @@
 		const dims = faceapi.matchDimensions(canvas_overlay, videoEl, true)
     let i = 0;
 	    for (; i < result_array.length; i++) {
-      console.log(currentEmotion)
 		  let result = result_array[i]
 		  const resizedResult = faceapi.resizeResults(result, dims)
 	      const minConfidence = 0.05
@@ -261,6 +262,9 @@
 	  })
     $('#skip').get(0).addEventListener('click', (event) => {
 		  currentEmotion++;
+	  })
+    $('#restart').get(0).addEventListener('click', (event) => {
+		  location.reload();
 	  })
     }
 
