@@ -3,9 +3,9 @@
 # Start
 
 ``` bash
-git clone https://github.com/hollowsunsets/leap-motion-inventory.git
+git clone https://github.com/hollowsunsets/FaceZoom.git
 git checkout js
-cd facezoom/app
+cd app
 npm i
 npm start
 ```
